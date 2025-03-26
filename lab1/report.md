@@ -59,8 +59,6 @@ PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING 
 PublicKey 
 AllowedIPs = 10.0.0.2/32
 ```
-В ходе процесса настройки интерфейсов на роутера нужно было 
-
 
 После этого оставалось только настроить интерфейсы на роуте: 
 добаивить интерфейс WireGuard
