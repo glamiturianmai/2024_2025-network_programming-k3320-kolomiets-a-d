@@ -44,7 +44,7 @@ Date of finished: 26.03.2025
 [Interface]
 PrivateKey = <приватный ключ, полученный выше>
 Address = 10.0.0.1/24
-ListenPort = 40000
+ListenPort 
 PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 
@@ -53,7 +53,7 @@ PublicKey = <публичный ключик CHR роутера>
 AllowedIPs = 10.0.0.2/32
 ```
 Далее нужно было пробросить трафик между интерфейсами (sudo sysctl -w net.ipv4.ip_forward=1
-) и разрешить входящие UDP-подключения на порт 40000 через фаервол ufw и наконец запустить сервис WireGuard
+) и разрешить входящие UDP-подключения на порт через фаервол ufw и наконец запустить сервис WireGuard
 
 В ходе процесса настройки интерфейсов на роутера нужно было 
 
@@ -68,13 +68,13 @@ AllowedIPs = 10.0.0.2/32
 ```
 после этого добавить peer
 ```
-/interface wireguard peers add interface=wg0 public-key="<публичный ключ сервера автоматизации>" endpoint-address=<IP сервера автоматизации> endpoint-port=40000 allowed-address=10.0.0.0/24                                     
+/interface wireguard peers add interface=wg0 public-key="<публичный ключ сервера автоматизации>" endpoint-address=<IP сервера автоматизации> endpoint-port allowed-address=10.0.0.0/24                                     
 ```
 и настроить фаервол
 ```
 
 /ip firewall filter add chain=input protocol=icmp action=accept
-/ip firewall filter add chain=input protocol=udp dst-port=40000 action=accept    
+/ip firewall filter add chain=input protocol=udp dst-port action=accept    
 ```
 
 ## Итог
