@@ -43,22 +43,22 @@ Date of finished: 26.03.2025
 
 После этого был определен конфиг WireGuard'a:
 
+
+Нужно было пробросить трафик между интерфейсами (sudo sysctl -w net.ipv4.ip_forward=1
+) и разрешить входящие UDP-подключения на порт через фаервол ufw и наконец запустить сервис WireGuard
+
 ```
 [Interface]
-PrivateKey = <приватный ключ, полученный выше>
+PrivateKey 
 Address = 10.0.0.1/24
 ListenPort 
 PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 
 [Peer]
-PublicKey = <публичный ключик CHR роутера>
+PublicKey 
 AllowedIPs = 10.0.0.2/32
 ```
-Далее нужно было пробросить трафик между интерфейсами (sudo sysctl -w net.ipv4.ip_forward=1
-) и разрешить входящие UDP-подключения на порт через фаервол ufw и наконец запустить сервис WireGuard
-
-
 В ходе процесса настройки интерфейсов на роутера нужно было 
 
 
