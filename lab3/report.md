@@ -83,4 +83,4 @@ Date of finished: 07.06.2025
 
 ### Схема
 
-<img src="./images/schema.png" width="800px">
+<img src="./images/shema.png" width="800px">
