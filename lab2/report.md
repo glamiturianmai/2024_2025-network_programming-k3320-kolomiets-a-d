@@ -61,6 +61,10 @@ ansible_user=admin
 Теперь нужно собрать Playbook:
 
 ```
+sudo nano playbook.yml
+```
+
+```
 ---
 - name: Configure MikroTik CHR devices
   hosts: chr_devices
@@ -146,4 +150,4 @@ ansible_user=admin
 
 ### Схема
 
-<img src="schema.png" width="800px">
+<img src="shema.png" width="800px">
