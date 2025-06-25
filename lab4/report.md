@@ -36,7 +36,7 @@ Date of finished: 10.06.2025
 
 ### Implementing Basic Forwarding
 
-<img src="./images/t1.png" width="800px">
+<img src="./images/t2.png" width="800px">
 
 В лабораторной работе представлены материалы на которые будем ориентироваться [basic.p4](https://github.com/p4lang/tutorials/blob/master/exercises/basic/basic.p4).
 
@@ -59,7 +59,7 @@ Date of finished: 10.06.2025
 
 ### Implementing Basic Tunneling
 
-<img src="./images/t2.png" width="800px">
+<img src="./images/t1.png" width="800px">
 
 Создадим файл 
 [basic_tunnel.p4](./assets/basic_tunnel.p4)
